@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stack (Array) - DSA Visualizer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- reuse your existing visualizer CSS -->
+  <link rel="stylesheet" href="page2-array.css" />
+  <style>
+    /* small tweaks for pointer badges */
+    .pointer-badge {
+      font-size: 0.7rem;
+      color: white;
+      background: #7a1a1a;
+      padding: 2px 6px;
+      border-radius: 12px;
+      margin-top: 6px;
+    }
+    .meta-row { display:flex; gap:12px; justify-content:center; margin-top:8px; align-items:center; }
+  </style>
+</head>
+<body>
+  <div class="logo-part">DSA Visualizer</div>
+
+  <div class="mainbox">
+    <div class="basename">Stack (Array Implementation)</div>
+
+    <div class="def">
+      <div class="d1">Definition</div>
+      <div class="d2">
+        A stack is a linear data structure which follows Last-In-First-Out (LIFO) order. Operations are performed at the top.
+      </div>
+    </div>
+
+    <br/>
+    <div class="def">
+      <div class="d1">Operations</div>
+      <div class="d2">
+        push(x) — add element x to top<br/>
+        pop() — remove top element<br/>
+        peek() / top() — view top element without removing<br/>
+        isEmpty(), isFull()
+      </div>
+    </div>
+
+    <br/>
+    <div class="def">
+      <div class="d1">Advantages</div>
+      <div class="d2">
+        Simple to implement; useful for recursion, undo mechanisms, expression evaluation.
+      </div>
+    </div>
+
+    <br/>
+    <div class="def">
+      <div class="d1">Disadvantages</div>
+      <div class="d2">
+        Fixed capacity when implemented as array; overflow if too many pushes.
+      </div>
+    </div>
+    <div class="def">
+      <div class="d1">Basic C Code</div>
+      <div class="d2">
+        <pre>
+            <code>
+                #include <stdio.h>
+                #define SIZE 5
+
+                int stack[SIZE];
+                int top = -1;
+
+                void push(int value) {
+                    if (top == SIZE - 1)
+                        printf("Stack Overflow\n");
+                    else {
+                        top++;
+                        stack[top] = value;
+                        printf("Inserted %d\n", value);
+                         }
+                }
+
+                void pop() {
+                    if (top == -1)
+                        printf("Stack Underflow\n");
+                    else {
+                        printf("Deleted %d\n", stack[top]);
+                        top--;
+                         }
+                }
+
+                void display() {
+                    if (top == -1)
+                        printf("Stack is empty\n");
+                    else {
+                        printf("Stack elements are:\n");
+                        for (int i = top; i >= 0; i--)
+                        printf("%d\n", stack[i]);
+                    }
+                }
+
+                int main() {
+                push(10);
+                push(20);
+                push(30);
+                display();
+                pop();
+                display();
+                return 0;
+                }
+
+            </code>
+        </pre>
+        </div>
+        </div>
+
+    <br/>
+    <div class="def">
+  <div class="d1">Time Complexity</div>
+  <div class="d2">
+    Push: O(1) <br/> Pop: O(1) <br/> Peek: O(1)
+  </div>
+</div>
+
+
+    <br/>
+
+    <!-- Visualizer -->
+    <div class="dav-wrapper">
+      <div class="dav-card">
+        <div class="dav-title">Stack Visualizer (Array-backed)</div>
+
+        <!-- create capacity -->
+        <div id="stack-length-section" class="dav-card-header">
+          <label class="dav-label">Enter Stack Capacity:</label>
+          <input id="stack-cap" class="dav-input" type="number" min="1" placeholder="eg: 5" />
+          <button id="stack-create" class="dav-btn dav-primary">Create Stack</button>
+          <div style="margin-left:12px;color:#666;font-size:.95rem;">
+            Stack starts empty. Use <strong>Push</strong> to add elements.
+          </div>
+        </div>
+
+        <div id="stack-note" style="margin-top:10px;color:#7a1a1a;font-weight:600;"></div>
+
+        <!-- operations -->
+        <div id="stack-operations" class="dav-hidden dav-ops-row" style="margin-top:12px; justify-content:center;">
+          <div class="dav-actions">
+            <button class="dav-btn dav-primary" id="s-op-push">Push</button>
+            <button class="dav-btn dav-primary" id="s-op-pop">Pop</button>
+            <button class="dav-btn dav-primary" id="s-op-peek">Peek</button>
+            <button class="dav-btn dav-primary" id="s-op-display">Display</button>
+          </div>
+          <div class="meta-row">
+            <div id="stack-meta-top" style="color:#7a1a1a;font-weight:600;"></div>
+          </div>
+        </div>
+
+        <div id="stack-input-section" class="dav-input-section"></div>
+
+        <div id="stack-length" class="dav-length"></div>
+        <div id="stack-visual" class="dav-visual-area" style="flex-direction:column; align-items:flex-end;"></div>
+
+        <div id="stack-step-desc" class="dav-length" style="font-style:italic;color:#555;min-height:24px;"></div>
+
+        <div id="stack-controls" class="dav-card-header dav-hidden" style="margin-top:8px; justify-content:center;">
+          <button id="s-next" class="dav-btn dav-ghost">Next Step</button>
+          <button id="s-reset" class="dav-btn dav-ghost">Reset</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="page3-stack.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

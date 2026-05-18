@@ -1,0 +1,15 @@
+.pointer-badge {
+  font-size: 0.75rem;
+  color: white;
+  background: #7a1a1a;
+  padding: 2px 6px;
+  border-radius: 12px;
+  margin-left: 8px;
+}
+.meta-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 8px;
+  align-items: center;
+}
