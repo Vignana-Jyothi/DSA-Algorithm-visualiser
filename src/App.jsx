@@ -11,6 +11,7 @@ import CqueueVisualizer from "./Cqueue/CqueueVisualizer";
 import Pqueue from "./Pqueue/Pqueue";
 import LinkedList from "./LinkedList/LinkedList";
 import Btree from "./Btree/Btree";
+import BtreeVisualizer from "./Btree/BtreeVisualizer";
 import BStree from "./BStree/BStree";
 import AVLtree from "./AVLtree/AVLtree";
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/pqueue" element={<Pqueue />} />
         <Route path="/linked-list" element={<LinkedList />} />
         <Route path="/btree" element={<Btree />} />
+        <Route path="/btree/visualizer" element={<BtreeVisualizer />} />
         <Route path="/bstree" element={<BStree />} />
         <Route path="/avltree" element={<AVLtree />} />
       </Routes>

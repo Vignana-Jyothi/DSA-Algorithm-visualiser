@@ -45,7 +45,7 @@ function Cqueue() {
             Shifting elements may be required in some implementations to reuse space.
           </div>
         </div>
-
+        <br />
         <div className="def">
           <div className="d1">Operations</div>
           <div className="d2">

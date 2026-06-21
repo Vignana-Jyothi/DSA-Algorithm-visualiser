@@ -1,0 +1,150 @@
+.preloader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader-overlay.preloader-exit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-panel {
+  width: min(420px, 90vw);
+  padding: 48px 32px 36px;
+  text-align: center;
+}
+
+.preloader-identity {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: preloader-fade-in 0.9s ease forwards;
+}
+
+.preloader-title {
+  margin: 0;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #7a1a1a;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.preloader-subtitle {
+  margin: 10px 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #888;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.preloader-system {
+  margin-top: 36px;
+  min-height: 168px;
+  text-align: left;
+}
+
+.preloader-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: #555;
+  opacity: 0;
+  transform: translateX(-6px);
+  animation: preloader-msg-in 0.35s ease forwards;
+}
+
+.preloader-check {
+  flex-shrink: 0;
+  color: #7a1a1a;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.preloader-ready {
+  margin-top: 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #7a1a1a;
+  opacity: 0;
+  animation: preloader-fade-in 0.4s ease forwards;
+}
+
+.preloader-progress-wrap {
+  margin-top: 28px;
+}
+
+.preloader-progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #999;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.preloader-progress-track {
+  height: 4px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.preloader-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7a1a1a, #9a1c1c);
+  border-radius: 4px;
+  transition: width 0.35s ease;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-shell.app-enter {
+  animation: app-enter 0.55s ease forwards;
+}
+
+.app-shell.app-hidden {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+@keyframes preloader-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes preloader-msg-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes app-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

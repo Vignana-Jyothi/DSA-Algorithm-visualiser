@@ -13,21 +13,21 @@ import {
 
 function ArrayVisualizer() {
   const [arr, setArr] = useState([]);
-  const [maxLen, setMaxLen] = useState(0);
-  const [steps, setSteps] = useState([]);
-  const [stepIndex, setStepIndex] = useState(0);
   const [originalArr, setOriginalArr] = useState([]);
-  const [lenInput, setLenInput] = useState("");
-  const [note, setNote] = useState("");
-  const [opsVisible, setOpsVisible] = useState(false);
-  const [inputMode, setInputMode] = useState(null);
-  const [stepControlsVisible, setStepControlsVisible] = useState(false);
-  const [stepDesc, setStepDesc] = useState("");
+  const [steps, setSteps] = useState([]);
   const [highlights, setHighlights] = useState([]);
   const [foundIndices, setFoundIndices] = useState([]);
+  const [maxLen, setMaxLen] = useState(0);
+  const [stepIndex, setStepIndex] = useState(0);
+  const [lenInput, setLenInput] = useState("");
+  const [note, setNote] = useState("");
+  const [stepDesc, setStepDesc] = useState("");
   const [sortType, setSortType] = useState("");
   const [valInput, setValInput] = useState("");
   const [idxInput, setIdxInput] = useState("");
+  const [opsVisible, setOpsVisible] = useState(false);
+  const [inputMode, setInputMode] = useState(null);
+  const [stepControlsVisible, setStepControlsVisible] = useState(false);
   const [searchType, setSearchType] = useState("linear");
 
   const applyView = (viewArr, hl = [], found = [], desc = "") => {
@@ -433,4 +433,3 @@ function ArrayVisualizer() {
 }
 
 export default ArrayVisualizer;
-
