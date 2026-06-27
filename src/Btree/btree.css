@@ -1,6 +1,6 @@
 .bt-layout {
   display: grid;
-  grid-template-columns: 1fr minmax(280px, 320px);
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 320px);
   gap: 20px;
   margin-top: 12px;
   align-items: start;
@@ -14,8 +14,9 @@
 
 .bt-canvas-wrap {
   position: relative;
-  min-height: 420px;
-  max-height: 520px;
+  min-height: min(620px, 72vh);
+  height: min(680px, 78vh);
+  max-height: none;
   border: 1px solid #ddd;
   background: #fbfbfb;
   border-radius: 8px;
@@ -72,7 +73,7 @@
 
 .bt-edge {
   stroke: #bbb;
-  stroke-width: 2;
+  stroke-width: 2.5;
   transition: stroke 0.3s ease;
 }
 
@@ -83,10 +84,10 @@
 
 .bt-node {
   position: absolute;
-  width: 52px;
-  height: 52px;
-  margin-left: -26px;
-  margin-top: -26px;
+  width: 64px;
+  height: 64px;
+  margin-left: -32px;
+  margin-top: -32px;
   border-radius: 50%;
   background: #fff;
   border: 2px solid #ccc;
@@ -95,7 +96,7 @@
   justify-content: center;
   font-weight: 700;
   color: #7a1a1a;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   transition: all 0.35s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   z-index: 2;

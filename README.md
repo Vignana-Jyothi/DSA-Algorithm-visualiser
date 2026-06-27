@@ -51,11 +51,11 @@ graph TD
         M_BTree --> btreeLogic.js_P[btreeLogic.js]:::planned
         M_BTree --> btree.css_P[btree.css]:::planned
 
-    Home --> M_BST[BST Module]:::planned
+    Home --> M_BST[BST Module]:::active
         M_BST --> BStree.jsx:::active
-        M_BST --> BStreeVisualizer.jsx_P[BStreeVisualizer.jsx]:::planned
-        M_BST --> bstLogic.js_P[bstLogic.js]:::planned
-        M_BST --> bst.css_P[bst.css]:::planned
+        M_BST --> BStreeVisualizer.jsx:::active
+        M_BST --> bstreeTreeLogic.js:::active
+        M_BST --> bstree.css:::active
 
     Home --> M_AVL[AVL Tree Module]:::planned
         M_AVL --> AVLtree.jsx:::active

@@ -85,9 +85,9 @@ export function getLevelCount(root) {
   return getHeight(root);
 }
 
-const NODE_SIZE = 52;
-const MIN_H_GAP = NODE_SIZE + 14;
-const MIN_V_GAP = 78;
+const NODE_SIZE = 64;
+const MIN_H_GAP = NODE_SIZE + 18;
+const MIN_V_GAP = 96;
 
 function collectLevels(root) {
   if (!root) return [];
@@ -110,7 +110,7 @@ function collectLevels(root) {
 export function computeLayout(root) {
   const positions = {};
   if (!root) {
-    return { positions, width: 520, height: 280, treeHeight: 0, nodeCount: 0 };
+    return { positions, width: 640, height: 360, treeHeight: 0, nodeCount: 0 };
   }
 
   const levels = collectLevels(root);
@@ -118,8 +118,8 @@ export function computeLayout(root) {
   const maxLevelWidth = Math.pow(2, treeHeight - 1);
   const nodeCount = levels.reduce((sum, level) => sum + level.length, 0);
 
-  const hGap = Math.max(MIN_H_GAP, Math.ceil(420 / maxLevelWidth));
-  const vGap = Math.max(MIN_V_GAP, 56 + treeHeight * 10);
+  const hGap = Math.max(MIN_H_GAP, Math.ceil(640 / maxLevelWidth));
+  const vGap = Math.max(MIN_V_GAP, 72 + treeHeight * 14);
   const pad = NODE_SIZE;
 
   const totalWidth = maxLevelWidth * hGap + pad * 2;
@@ -149,14 +149,14 @@ export function computeLayout(root) {
   };
 }
 
-/** Scale factor to fit layout inside a viewport while preserving aspect ratio. */
-export function computeFitScale(layout, viewportWidth, viewportHeight, padding = 24) {
+/** Scale to fit layout inside viewport; allows upscale so the tree fills the canvas. */
+export function computeFitScale(layout, viewportWidth, viewportHeight, padding = 32) {
   if (!layout.width || !layout.height) return 1;
-  const availW = Math.max(viewportWidth - padding * 2, 120);
-  const availH = Math.max(viewportHeight - padding * 2, 120);
+  const availW = Math.max(viewportWidth - padding * 2, 160);
+  const availH = Math.max(viewportHeight - padding * 2, 160);
   const scaleX = availW / layout.width;
   const scaleY = availH / layout.height;
-  return Math.min(scaleX, scaleY, 1);
+  return Math.min(scaleX, scaleY, 2.5);
 }
 
 export function collectEdges(root, edges = []) {

@@ -1,0 +1,18 @@
+.horizontal-scroll-list {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.horizontal-scroll-list::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontal-scroll-list-item {
+  min-width: 0;
+  flex-shrink: 0;
+}

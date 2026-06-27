@@ -13,6 +13,7 @@ import LinkedList from "./LinkedList/LinkedList";
 import Btree from "./Btree/Btree";
 import BtreeVisualizer from "./Btree/BtreeVisualizer";
 import BStree from "./BStree/BStree";
+import BStreeVisualizer from "./BStree/BStreeVisualizer";
 import AVLtree from "./AVLtree/AVLtree";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/btree" element={<Btree />} />
         <Route path="/btree/visualizer" element={<BtreeVisualizer />} />
         <Route path="/bstree" element={<BStree />} />
+        <Route path="/bstree/visualizer" element={<BStreeVisualizer />} />
         <Route path="/avltree" element={<AVLtree />} />
       </Routes>
     </BrowserRouter>
