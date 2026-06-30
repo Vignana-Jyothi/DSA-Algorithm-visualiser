@@ -1,0 +1,15 @@
+# Dev-only Dockerfile — Vite with hot module replacement
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY . .
+
+# Expose Vite dev server port
+EXPOSE 5173
+
+# --host makes Vite bind to 0.0.0.0 so Docker can forward the port
+CMD ["npm", "run", "dev", "--", "--host"]

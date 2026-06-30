@@ -1,0 +1,27 @@
+services:
+  # ── Production ──────────────────────────────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    container_name: dsa-visualiser
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    profiles: ["prod"]
+
+  # ── Local Dev (Vite HMR) ────────────────────────────────────────
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: dsa-visualiser-dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+    profiles: ["dev"]
