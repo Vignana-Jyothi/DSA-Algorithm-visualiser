@@ -18,7 +18,7 @@ const qControls = document.getElementById("q-controls");
 const qNext = document.getElementById("q-next");
 const qReset = document.getElementById("q-reset");
 
-let qArr = [];         // physical array of capacity length
+let qArr = [];         // physical array of capacity length.
 let qCap = 0;
 let qFront = -1;       // index of front element
 let qRear = -1;        // index of rear element
