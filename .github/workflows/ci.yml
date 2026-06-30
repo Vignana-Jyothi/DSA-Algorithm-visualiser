@@ -13,7 +13,7 @@ jobs:
   lint-and-build:
     name: Lint & Build
     runs-on: self-hosted       # ← your self-hosted runner
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Run ESLint
-        run: npm run lint || true
+        run: npm run lint
 
       - name: Build production bundle
         run: npm run build
@@ -63,22 +63,21 @@ jobs:
 
       - name: Stop & remove old container (if running)
         run: |
-          docker stop dsa-visualiser 2>/dev/null || true
-          docker rm   dsa-visualiser 2>/dev/null || true
+          docker rm -f dsa-visualiser 2>/dev/null || true
 
       - name: Run new container
         run: |
           docker run -d \
             --name dsa-visualiser \
             --restart unless-stopped \
-            -p 3319:3000 \
+            -p 3322:3000 \
             dsa-visualiser:latest
 
       - name: Health check
         run: |
           echo "Waiting for container to start..."
           sleep 5
-          curl -f http://localhost:80 || (echo "Health check failed!" && exit 1)
+          curl -f http://localhost:3322 || (echo "Health check failed!" && exit 1)
 
       - name: Clean up old images
         run: |
