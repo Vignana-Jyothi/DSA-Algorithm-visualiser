@@ -71,7 +71,7 @@ jobs:
           docker run -d \
             --name dsa-visualiser \
             --restart unless-stopped \
-            -p 3319:80 \
+            -p 3319:3000 \
             dsa-visualiser:latest
 
       - name: Health check
