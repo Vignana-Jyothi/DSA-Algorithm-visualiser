@@ -68,7 +68,7 @@ function Preloader({ onComplete }) {
     >
       <div className="preloader-panel">
         <div className="preloader-identity">
-          <h1 className="preloader-title">DSA Algorithm Visualizer</h1>
+          <h1 className="preloader-title">DSA Visualizer</h1>
           <p className="preloader-subtitle">VNRVJIET</p>
         </div>
 
