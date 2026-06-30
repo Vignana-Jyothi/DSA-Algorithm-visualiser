@@ -3,7 +3,7 @@
    - User creates length (array starts EMPTY)
    - User uses Insertion to enter elements (or later insert/delete/update)
    - All operations (insertion, deletion, update, search (linear/binary), sorts) are visualized step-by-step
-   - Each step has a 1-line description for beginners.
+   - Each step has a 1-line description for beginners
 */
 
 const visualizer = document.getElementById("dav-visualizer");
